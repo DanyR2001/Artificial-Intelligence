@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+
+<head>
+  <title>mate IA one</title>
+
+  <link rel="stylesheet" type="text/css" href="static/css/chessboard-1.0.0.min.css">
+
+  <style>
+    .progress-container {
+      font-family: Arial, Helvetica, sans-serif;
+      width: 600px;
+      background-color: #ddd;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 30px;
+      width: 50%;
+      /* Default to 50% for evaluation = 0 */
+      background-color: #1a1a1a;
+      text-align: center;
+      line-height: 30px;
+      color: white;
+      transition: width 0.5s ease;
+    }
+
+    .matto {
+      background-color: #ff6666 !important; /* Colore di evidenziazione per lo scacco */
+    }
+
+
+    #promotion-dialog {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      /* transform: translate(-50%, -50%); */
+      background: white;
+      padding: 20px;
+      border: 1px solid #000;
+    }
+
+    #promotion-dialog button {
+      display: block;
+      width: 100%;
+      margin: 5px 0;
+      padding: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <br>
+  <div class="progress-container">
+    <div id="progress-bar" class="progress-bar">0.0</div>
+  </div>
+  <br>
+  <div>
+  <div id="myBoard" style="width: 600px"></div>
+  <br>
+  <div id="promotion-dialog" style="display: none;">
+    <p>Promote to:</p>
+    <button data-piece="q">♕ Queen</button>
+    <button data-piece="r">♖ Rook</button>
+    <button data-piece="b">♗ Bishop</button>
+    <button data-piece="n">♘ Knight</button>
+  </div>
+  </div>
+  <br>
+  <!-- space for the game over status-->
+  <p id="user-dialog"></p>
+  <p id="board-fen">FEN:</p>
+  <p id="board-pgn">PGN:</p>
+  <script src="static/js/jquery-3.7.1.min.js"></script>
+  <script src="static/js/chess.js"></script>
+  <script src="static/js/chessboard-1.0.0.min.js"></script>
+  <script>
+    var board = null
+    var wking_last_position = 'e1';
+    var bking_last_position = 'e8';
+    var check_detected = false; //indica se c'è stato un check durante la partita.
+    function onDrop(source, target, piece) {
+      var move = source + target;
+      if (piece[1].toUpperCase() === 'P' && (target[1] === '8' || target[1] === '1')) {
+        showPromotionDialog(function (selectedPiece) {
+          move += selectedPiece;
+          sendMoveToServer(move);
+        });
+        return false;
+      }
+      else {
+        if (piece === 'wK' && target !== wking_last_position && check_detected){
+          removeCheckHighlighting('w');
+        }
+        else if (piece === 'bK' && target !== wking_last_position && check_detected){
+          removeCheckHighlighting('b');
+        }
+        sendMoveToServer(move);
+        return true;
+      }
+    }
+
+    function showPromotionDialog(callback) {
+      const dialog = document.getElementById('promotion-dialog');
+      dialog.style.display = 'block';
+      const buttons = dialog.getElementsByTagName('button');
+      const clickHandler = function (e) {
+        const piece = this.getAttribute('data-piece');
+        dialog.style.display = 'none';
+        callback(piece);
+        for (let btn of buttons) {
+          btn.removeEventListener('click', clickHandler);
+        }
+      };
+      for (let btn of buttons) {
+        btn.addEventListener('click', clickHandler);
+      }
+    }
+
+    function sendMoveToServer(move) {
+      config.draggable = false;
+      $.get('/move', { 'move': move }, function (response) {
+        console.log(response)
+        if (response.game_over) {
+          document.getElementById("user-dialog").innerText = response.message;
+          config.draggable = false;
+        } else {
+          checkForCheks(response)
+          document.getElementById("user-dialog").innerText = "";
+          document.getElementById("board-fen").innerText = "FEN: " + response.fen;
+          document.getElementById("board-pgn").innerText = "PGN: " + response.pgn;
+          board.position(response.fen);
+          updateEvaluationBar(response.evaluation);
+        }
+        config.draggable = true;
+      }).fail(function (error) {
+        console.error("Error making move: ", error);
+        document.getElementById("user-dialog").innerText = "Error processing move";
+      });
+      
+    }
+
+    function updateEvaluationBar(evaluation) {
+      const progressBar = document.getElementById("progress-bar");
+      let width = 50;  // neutral position
+      if (evaluation > 0) {
+        width = 50 + Math.min(evaluation * 5, 50);
+      } else if (evaluation < 0) {
+        width = 50 + Math.max(evaluation * 5, -50);
+      }
+      progressBar.style.width = `${width}%`;
+      progressBar.textContent = `${evaluation.toFixed(1)}`;
+    }
+
+    function checkForCheks(response){
+      if (response.is_check) {
+          // Sceglie se è il re bianco o il re nero sotto scacco
+          if (response.who_is_in_check === 'w') {
+            wking_last_position = response.white_king_position;
+            const square = document.querySelector(`.square-${wking_last_position}`);
+            if (square) {
+              bking_last_position = response.black_king_position;
+              square.classList.add('matto');
+            }   
+          } else {
+            const square = document.querySelector(`.square-${bking_last_position}`);
+            if (square) {
+              square.classList.add('matto');
+            }  
+          }
+          check_detected = true;
+        } /*if (!response.is_check && check_detected) {
+          // Rimuovi eventuali evidenziazioni precedenti
+          check_detected = false;
+          removeCheckHighlighting();
+    }*/
+  }
+
+  function removeCheckHighlighting(color){
+    const square1 = document.querySelector(`.square-${wking_last_position}`);
+    const square2 = document.querySelector(`.square-${bking_last_position}`);
+    if (color === 'w'){
+      if (square1.classList.contains('matto')) {
+              square1.classList.remove('matto'); // Rimuovi la classe solo se è presente
+          }
+    }
+    else if (color === 'b'){
+      if (square2.classList.contains('matto')) {
+              square2.classList.remove('matto'); // Rimuovi la classe solo se è presente
+          }
+    }
+    check_detected = false;
+    /*const columns = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']; // Colonne
+    const rows = ['1', '2', '3', '4', '5', '6', '7', '8']; // Righe
+
+    columns.forEach(col => {
+    rows.forEach(row => {
+      const square = document.querySelector(`.square-${col}${row}`);
+      if (square.classList.contains('matto')) {
+              square.classList.remove('matto'); // Rimuovi la classe solo se è presente
+          }
+        });
+      });*/
+    }
+
+    var config = {
+      draggable: true,
+      position: 'start',
+      onDrop: onDrop,
+    }
+
+    board = Chessboard('myBoard', config);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+Flask
+chess
+stockfish
+torch
+requests
+scikit-learn

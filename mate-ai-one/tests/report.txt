@@ -1,0 +1,400 @@
+ERET Test Suite Results
+========================================
+
+Engine: PyTorchMLEngine
+- Total Tests: 111
+- Correct: 14 (12.61%)
+- Time: 0:04:55.549698
+
+Failed Tests:
+ID: E
+Expected: f1f4
+Actual: c3e2
+
+ID: E
+Expected: f4f5
+Actual: a1g1
+
+ID: E
+Expected: f3g5
+Actual: d3c2
+
+ID: E
+Expected: b3f7
+Actual: c3d5
+
+ID: E
+Expected: d7c5
+Actual: e4e5
+
+ID: E
+Expected: d7e5
+Actual: d8h4
+
+ID: E
+Expected: b3d5
+Actual: b3b7
+
+ID: E
+Expected: e5g6
+Actual: e5c4
+
+ID: E
+Expected: d5d4
+Actual: f6h4
+
+ID: E
+Expected: d4e5, g1f3
+Actual: c4a6
+
+ID: E
+Expected: c3d5
+Actual: d4c5
+
+ID: E
+Expected: e2d2, d3c2
+Actual: e2a2
+
+ID: E
+Expected: d2f3
+Actual: c3a4
+
+ID: E
+Expected: h3d3
+Actual: h3e3
+
+ID: E
+Expected: a5c6
+Actual: c3c6
+
+ID: E
+Expected: b8b2
+Actual: d6c5
+
+ID: E
+Expected: a5g5
+Actual: f8c5
+
+ID: E
+Expected: e3f5
+Actual: e3d5
+
+ID: E
+Expected: d3h7
+Actual: c2c3
+
+ID: E
+Expected: d8c8
+Actual: e5g3
+
+ID: E
+Expected: h2h4
+Actual: a4b6
+
+ID: E
+Expected: h4g6
+Actual: h5h6
+
+ID: E
+Expected: b2b3
+Actual: c3b5
+
+ID: E
+Expected: g5d8
+Actual: g5h6
+
+ID: E
+Expected: h4g6
+Actual: e2g4
+
+ID: E
+Expected: g2g4
+Actual: g6h5
+
+ID: E
+Expected: a7b7
+Actual: e2e4
+
+ID: E
+Expected: c1c5
+Actual: d3e3
+
+ID: E
+Expected: f3h4
+Actual: c2d1
+
+ID: E
+Expected: f1g3
+Actual: f6f7
+
+ID: E
+Expected: f3e5
+Actual: d4e5
+
+ID: E
+Expected: c1c8
+Actual: c1e1
+
+ID: E
+Expected: a3b5
+Actual: d5f6
+
+ID: E
+Expected: b6b7
+Actual: h1g3
+
+ID: E
+Expected: c7a8
+Actual: c2f2
+
+ID: E
+Expected: e4d5
+Actual: f6g6
+
+ID: E
+Expected: a2a3
+Actual: c2d4
+
+ID: E
+Expected: f8c5
+Actual: a8b8
+
+ID: E
+Expected: f3g5
+Actual: h4g3
+
+ID: E
+Expected: d4f5
+Actual: h3g2
+
+ID: E
+Expected: h2h4
+Actual: e2d3
+
+ID: E
+Expected: b3b4
+Actual: h2h3
+
+ID: E
+Expected: f4d3
+Actual: f4h5
+
+ID: E
+Expected: c4d5
+Actual: f3g5
+
+ID: E
+Expected: f2f4
+Actual: h2h4
+
+ID: E
+Expected: e5f3
+Actual: a8e8
+
+ID: E
+Expected: g7h6
+Actual: e4f4
+
+ID: E
+Expected: b2b4
+Actual: g2g3
+
+ID: E
+Expected: c5c4
+Actual: h7h6
+
+ID: E
+Expected: c4c3
+Actual: c8b7
+
+ID: E
+Expected: f4h6
+Actual: d2c2
+
+ID: E
+Expected: d5d6
+Actual: b2b3
+
+ID: E
+Expected: a8d8
+Actual: g7e5
+
+ID: E
+Expected: f8f6
+Actual: f4f3
+
+ID: E
+Expected: g5g6
+Actual: c3c4
+
+ID: E
+Expected: e8f8
+Actual: e7c7
+
+ID: E
+Expected: c7b6
+Actual: f6g4
+
+ID: E
+Expected: f2e1
+Actual: d5d4
+
+ID: E
+Expected: f4f3
+Actual: g7h6
+
+ID: E
+Expected: a2a3
+Actual: d2b1
+
+ID: E
+Expected: h4h5
+Actual: a2f2
+
+ID: E
+Expected: a2a3
+Actual: d2h2
+
+ID: E
+Expected: f4f5
+Actual: c1c3
+
+ID: E
+Expected: a8d5
+Actual: a7a6
+
+ID: E
+Expected: d1e2
+Actual: e1e2
+
+ID: E
+Expected: d3c4
+Actual: d3c2
+
+ID: E
+Expected: h5f5
+Actual: g4h3
+
+ID: E
+Expected: g5f6
+Actual: f1c4
+
+ID: E
+Expected: g5f6
+Actual: b2c3
+
+ID: E
+Expected: e2e8
+Actual: g5f6
+
+ID: E
+Expected: g5c1
+Actual: f8f6
+
+ID: E
+Expected: h6g7
+Actual: d1d2
+
+ID: E
+Expected: g3g4
+Actual: g2h2
+
+ID: E
+Expected: h6g7, h6g5
+Actual: h6f4
+
+ID: E
+Expected: e5g4
+Actual: c6f6
+
+ID: E
+Expected: c4c5
+Actual: f2e3
+
+ID: E
+Expected: e4e5
+Actual: d1b1
+
+ID: E
+Expected: g3g4
+Actual: d3f4
+
+ID: E
+Expected: e7e8n
+Actual: d5d1
+
+ID: E
+Expected: g5g2
+Actual: c8d7
+
+ID: E
+Expected: f7d6
+Actual: g3f3
+
+ID: E
+Expected: d6f6
+Actual: h7e4
+
+ID: E
+Expected: f3g5
+Actual: c1g5
+
+ID: E
+Expected: e5f6
+Actual: f3f7
+
+ID: E
+Expected: c4c5
+Actual: f2g1
+
+ID: E
+Expected: e7e8
+Actual: c4d5
+
+ID: E
+Expected: d4f5
+Actual: d1c2
+
+ID: E
+Expected: a6b4
+Actual: g6h4
+
+ID: E
+Expected: b7c8
+Actual: f3g4
+
+ID: E
+Expected: c6e7
+Actual: f8e7
+
+ID: E
+Expected: e4e5
+Actual: e1e3
+
+ID: E
+Expected: e7f6
+Actual: g7f6
+
+ID: E
+Expected: b8b5
+Actual: d7c6
+
+ID: E
+Expected: b3a4
+Actual: f2f1
+
+ID: E
+Expected: c4d4
+Actual: e6e5
+
+ID: E
+Expected: c4c5
+Actual: b1c2
+
+ID: E
+Expected: a2a3
+Actual: b3b1
+
+
+========================================
+

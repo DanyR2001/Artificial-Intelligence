@@ -1,0 +1,1 @@
+g++ -std=c++17 -O3 -march=native -o main.out main.cc chess_engine.cc transposition_table.cc && ./main.out

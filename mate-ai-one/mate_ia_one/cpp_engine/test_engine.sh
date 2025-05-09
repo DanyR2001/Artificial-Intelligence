@@ -1,0 +1,1 @@
+clang++ -std=c++17 -O3 -Ichess-library/include chess_engine.cc main.cc transposition_table.cc -o chess_engine.out && ./chess_engine.out

@@ -1,0 +1,83 @@
+=== Report di K-Fold Cross-Validation ===
+
+Random Seed: 42
+Numero di Fold: 5
+Dataset:
+ - Dimensioni totali: 90000
+
+Fold 1:
+  Metriche di Valutazione (Training Set):
+    - MSE: 0.0748
+    - RMSE: 0.2734
+    - MAE: 0.2088
+    - R²: 0.7370
+    - MAPE: 6745184256.00%
+  Metriche di Valutazione (Test Set):
+    - MSE: 0.2191
+    - RMSE: 0.4681
+    - MAE: 0.3487
+    - R²: 0.2237
+    - MAPE: 9456419840.00%
+
+Fold 2:
+  Metriche di Valutazione (Training Set):
+    - MSE: 0.0696
+    - RMSE: 0.2637
+    - MAE: 0.2017
+    - R²: 0.7559
+    - MAPE: 6129212928.00%
+  Metriche di Valutazione (Test Set):
+    - MSE: 0.2168
+    - RMSE: 0.4656
+    - MAE: 0.3502
+    - R²: 0.2247
+    - MAPE: 10080475136.00%
+
+Fold 3:
+  Metriche di Valutazione (Training Set):
+    - MSE: 0.0654
+    - RMSE: 0.2558
+    - MAE: 0.1945
+    - R²: 0.7699
+    - MAPE: 6337799680.00%
+  Metriche di Valutazione (Test Set):
+    - MSE: 0.2282
+    - RMSE: 0.4777
+    - MAE: 0.3561
+    - R²: 0.1913
+    - MAPE: 10653348864.00%
+
+Fold 4:
+  Metriche di Valutazione (Training Set):
+    - MSE: 0.1138
+    - RMSE: 0.3373
+    - MAE: 0.2611
+    - R²: 0.5974
+    - MAPE: 8121606144.00%
+  Metriche di Valutazione (Test Set):
+    - MSE: 0.2317
+    - RMSE: 0.4814
+    - MAE: 0.3677
+    - R²: 0.1983
+    - MAPE: 9976398848.00%
+
+Fold 5:
+  Metriche di Valutazione (Training Set):
+    - MSE: 0.0911
+    - RMSE: 0.3018
+    - MAE: 0.2323
+    - R²: 0.6786
+    - MAPE: 7459014656.00%
+  Metriche di Valutazione (Test Set):
+    - MSE: 0.2264
+    - RMSE: 0.4758
+    - MAE: 0.3593
+    - R²: 0.2099
+    - MAPE: 9332939776.00%
+
+Metriche Medie su Tutti i Fold (Test Set):
+ - MSE: 0.2244
+ - RMSE: 0.4737
+ - MAE: 0.3564
+ - R²: 0.2096
+ - MAPE: 9899916288.00%

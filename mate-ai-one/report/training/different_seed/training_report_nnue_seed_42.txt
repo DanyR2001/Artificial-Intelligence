@@ -1,0 +1,11 @@
+=== Report di Cross-Validation ===
+
+Dataset:
+ - Dimensioni totali: 5000
+
+Metriche Medie della Cross-Validation (su 5 fold):
+ - MSE: 0.0787
+ - RMSE: 0.2804
+ - MAE: 0.1974
+ - R²: 0.4300
+ - MAPE: 2452592128.00%

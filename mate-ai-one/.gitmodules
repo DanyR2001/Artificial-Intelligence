@@ -1,0 +1,3 @@
+[submodule "mate_ia_one/cpp_engine/chess-library"]
+	path = mate_ia_one/cpp_engine/chess-library
+	url = git@github.com:Disservin/chess-library.git

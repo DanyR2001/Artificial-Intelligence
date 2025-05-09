@@ -1,0 +1,20 @@
+=== Report di Addestramento e Valutazione ===
+
+Dataset:
+ - Dimensioni totali: 12000
+ - Training set: 9600 (80.0%)
+ - Test set: 2400 (20.0%)
+
+Metriche di Valutazione (Training Set):
+ - MSE: 0.1165
+ - RMSE: 0.3414
+ - MAE: 0.2559
+ - R²: 0.6110
+ - MAPE: 2934105856.00%
+
+Metriche di Valutazione (Test Set):
+ - MSE: 0.1478
+ - RMSE: 0.3844
+ - MAE: 0.2869
+ - R²: 0.5189
+ - MAPE: 3678500352.00%

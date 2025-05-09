@@ -1,0 +1,2 @@
+clang++ -O3 -Wall -shared -std=c++17 -undefined dynamic_lookup $(python3 -m pybind11 --includes) bind.cc chess_engine.cc transposition_table.cc -o chess_engine.so
+mv chess_engine.so ./../../.venv/lib/python3.12/site-packages/chess_engine.so
